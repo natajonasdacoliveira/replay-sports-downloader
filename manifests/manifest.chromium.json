@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Replay Sports Downloader",
+  "version": "1.0.0",
+  "description": "Baixa sequencialmente os vídeos recentes da conta autenticada no Replay Sports.",
+  "minimum_chrome_version": "121",
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.replay.esp.br/*",
+    "https://replay.esp.br/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Replay Sports Downloader",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.replay.esp.br/*",
+        "https://replay.esp.br/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "page-bridge.js"
+      ],
+      "matches": [
+        "https://www.replay.esp.br/*",
+        "https://replay.esp.br/*"
+      ]
+    }
+  ]
+}
+

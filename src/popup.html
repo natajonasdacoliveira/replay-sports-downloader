@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Replay Sports Downloader</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">RS</div>
+        <div>
+          <h1>Replay Downloader</h1>
+          <p>Download sequencial dos vídeos recentes</p>
+        </div>
+      </header>
+
+      <section class="card settings" aria-labelledby="settings-title">
+        <h2 id="settings-title">Configuração</h2>
+
+        <label for="limit">
+          Quantidade máxima
+          <input id="limit" type="number" min="1" max="500" value="500">
+        </label>
+
+        <label for="delay">
+          Intervalo entre vídeos
+          <span class="input-suffix">
+            <input id="delay" type="number" min="1" max="60" value="2">
+            <span>segundos</span>
+          </span>
+        </label>
+
+        <button id="start" class="primary" type="button">
+          Baixar vídeos recentes
+        </button>
+        <button id="cancel" class="secondary" type="button" hidden>
+          Interromper fila
+        </button>
+      </section>
+
+      <section class="card status" aria-live="polite">
+        <div class="status-line">
+          <strong id="status-title">Pronto</strong>
+          <span id="status-count">0 / 0</span>
+        </div>
+        <progress id="progress" max="1" value="0"></progress>
+        <p id="status-detail">
+          Abra a tela Vídeos Recentes no Replay Sports.
+        </p>
+        <p id="warning" class="warning" hidden></p>
+      </section>
+
+      <footer>
+        Os arquivos são salvos em <strong>Downloads/ReplaySports</strong>.
+        A extensão não envia dados para terceiros.
+      </footer>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
+
